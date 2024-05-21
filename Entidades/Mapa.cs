@@ -76,7 +76,7 @@ namespace Entidades
             StringBuilder mapa = new StringBuilder();
             mapa.Append(base.ToString());
             mapa.AppendLine($"Cód. de barras: {Barcode}");
-            mapa.AppendLine($"Superficie: {Superficie}");
+            mapa.AppendLine($"Superficie: {Ancho} * {Alto} = {Superficie}cm2.");
             return mapa.ToString();
         }
 

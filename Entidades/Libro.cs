@@ -76,7 +76,7 @@ namespace Entidades
             libro.Append(base.ToString());
             libro.AppendLine($"ISBN: {ISBN}");
             libro.AppendLine($"Cód. de barras: {Barcode}");
-            libro.AppendLine($"Número de páginas: {NumPaginas}");
+            libro.AppendLine($"Número de páginas: {NumPaginas}.");
             return libro.ToString();
         }
     }
