@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Entidades
 {
@@ -21,13 +18,20 @@ namespace Entidades
         string titulo;
 
         //Constructores
-        public Documento(int anio, string autor, string barcode, string numNormalizado, string titulo)
+        public Documento(string titulo, string autor, int anio, string numNormalizado, string barcode)
         {
-            this.anio = anio;
-            this.autor = autor;
-            this.barcode = barcode;
-            this.numNormalizado = numNormalizado;
-            this.titulo = titulo;
+            try
+            {
+                this.anio = anio;
+                this.autor = autor;
+                this.barcode = barcode;
+                this.numNormalizado = numNormalizado;
+                this.titulo = titulo;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         //Propiedades
@@ -67,7 +71,7 @@ namespace Entidades
          Crea un objeto constructor de string al cual le va agregado
         la informacion que quiero mosrar. Finalmente retorna el String final.
          */
-        public virtual string ToString()
+        public override string ToString()
         {
             StringBuilder documento = new StringBuilder();
             documento.AppendLine($"Título: {Titulo}");

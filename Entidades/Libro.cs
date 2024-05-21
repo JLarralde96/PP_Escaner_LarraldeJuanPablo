@@ -16,10 +16,17 @@ namespace Entidades
 
 
         //Constructores
-        public Libro(int anio, string autor, string barcode, string numNormalizado, string titulo, int numPaginas)
-            : base(anio, autor, barcode, numNormalizado, titulo)
+        public Libro(string titulo, string autor, int anio, string numNormalizado, string barcode, int numPaginas)
+            : base(titulo,autor, anio, numNormalizado, barcode)
         {
-            this.numPaginas = numPaginas;
+            try
+            {
+                this.numPaginas = numPaginas;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         //Propiedades

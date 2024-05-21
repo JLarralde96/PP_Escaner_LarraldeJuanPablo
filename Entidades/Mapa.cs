@@ -16,16 +16,24 @@ namespace Entidades
 
 
         //Contructores
-        public Mapa(int anio, string autor, string barcode,string titulo, int ancho, int alto, string numNormalizado = null) 
-            : base(anio, autor, barcode, numNormalizado, titulo)
+        public Mapa(string titulo, string autor, int anio, string numNormalizado, string barcode, int ancho, int alto)
+            : base( titulo,  autor, anio,  numNormalizado,  barcode)
         {
-            this.ancho = ancho;
-            this.alto = alto;
+            try
+            {
+                this.ancho = ancho;
+                this.alto = alto;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
-       
+
         //Porpiedades
-        public int Ancho { get => ancho;}
-        public int Alto { get => alto;}
+        public int Ancho { get => ancho; }
+        public int Alto { get => alto; }
 
         public int Superficie
         {
@@ -34,6 +42,10 @@ namespace Entidades
 
         //Metodos
 
+        /*
+         * Preguntamos a traves de un condicional todas las posibles variables dadas en la consigna para que considerar al documento como el mismo documento. Si alguna se ucmple
+         * el documento ya esta existe. Esto se usa luego cuando preguntamos si este documento se encuentra en el escaner. 
+         */
         public static bool operator ==(Mapa mapa, Mapa mapaDos)
         {
             bool igual = false;
@@ -62,7 +74,7 @@ namespace Entidades
         public override string ToString()
         {
             StringBuilder mapa = new StringBuilder();
-            mapa.Append(base.ToString());   
+            mapa.Append(base.ToString());
             mapa.AppendLine($"Cód. de barras: {Barcode}");
             mapa.AppendLine($"Superficie: {Superficie}");
             return mapa.ToString();

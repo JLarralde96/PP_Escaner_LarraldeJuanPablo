@@ -15,20 +15,29 @@ namespace Test
             int cantidad;
             string resumen;
 
-            Mapa mapaUno = new Mapa(1645, "Vallejos", "123456","Nuevo Continente", 20, 20);
-            Mapa mapaDos = new Mapa(1645, "Colon", "852963","Portugal", 12, 23);
+            Mapa mapaUno = new Mapa("HOla", "Pepe", 1996, "1646", "123456", 45, 12);
+            Mapa mapaDos = new Mapa("HOla", "Pepe", 1996, "1646", "123456", 45, 12);
+            Libro libroUno = new Libro("HOla", "Pepe", 1996, "1646", "123456", 45);
 
             Escaner escanerUno = new Escaner("HP", Escaner.TipoDoc.mapa);
 
             bool agregarDocumento = escanerUno + mapaUno;
-            bool agregarDocumentoDos = escanerUno + mapaDos;
+            bool agregarDocumentoDos = escanerUno + libroUno;
 
 
             Informes.MostrarDistribuidos(escanerUno, out extension, out cantidad, out resumen);
 
             Console.WriteLine($"Extension: {extension}");
             Console.WriteLine($"Cantidad: {cantidad}");
+            Console.WriteLine();
             Console.WriteLine($"Resumen:\n{resumen}");
+
+
+
+
+
+  
+
 
 
 
