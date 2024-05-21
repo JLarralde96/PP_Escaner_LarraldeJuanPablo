@@ -51,7 +51,7 @@ namespace Entidades
             bool igual = false;
 
             if ((mapa.Barcode == mapaDos.Barcode) ||
-                 (mapa.Titulo == mapa.Titulo) && (mapa.Autor == mapa.Autor) && (mapa.Anio == mapa.Anio) && (mapa.Superficie == mapa.Superficie))
+                 (mapa.Titulo == mapaDos.Titulo) && (mapa.Autor == mapaDos.Autor) && (mapa.Anio == mapaDos.Anio) && (mapa.Superficie == mapaDos.Superficie))
             {
                 igual = true;
             }

@@ -77,39 +77,25 @@ namespace Entidades
 
             try
             {
-                if (documento is Mapa doc)
+                foreach (Documento doc in escaner.listaDocumentos)
                 {
-                    if (escaner.Tipo == TipoDoc.mapa)
+                    if (doc is Mapa && documento is Mapa)
                     {
-                        foreach (Mapa mapa in escaner.listaDocumentos)
+                        if ((Mapa)documento == (Mapa)doc)
                         {
-                            if (doc == mapa)
-                            {
-                                igual = true;
-                            }
+                            igual = true;
+                            break;
                         }
                     }
-                    else
+                    else if (doc is Libro && documento is Libro)
                     {
-                        igual = false;
-                    }
-                }
-                else if (documento is Libro docu)
-                {
-                    if (escaner.Tipo == TipoDoc.libro)
-                    {
-                        foreach (Libro libro in escaner.listaDocumentos)
+                        if ((Libro)documento == (Libro)doc)
                         {
-                            if (docu == libro)
-                            {
-                                igual = true;
-                            }
+                            igual = true;
+                            break;
                         }
                     }
-                    else
-                    {
-                        igual = false;
-                    }
+
                 }
 
                 return igual;

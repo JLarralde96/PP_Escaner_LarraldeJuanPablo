@@ -16,15 +16,15 @@ namespace Test
             string resumen;
 
             Mapa mapaUno = new Mapa("HOla", "Pepe", 1996, "1646", "123456", 45, 12);
-            Mapa mapaDos = new Mapa("HOla", "Pepe", 1996, "1646", "123456", 45, 12);
-            Libro libroUno = new Libro("HOla", "Pepe", 1996, "1646", "123456", 45);
+            Mapa mapaDos = new Mapa("Perod", "Pepes", 2014, "1346", "76592", 14, 44);
+
 
             Escaner escanerUno = new Escaner("HP", Escaner.TipoDoc.mapa);
 
             bool agregarDocumento = escanerUno + mapaUno;
-            bool agregarDocumentoDos = escanerUno + libroUno;
+            bool agregarDocumentoDos = escanerUno + mapaDos;
 
-
+            Console.WriteLine(escanerUno.ListaDocumentos);
             Informes.MostrarDistribuidos(escanerUno, out extension, out cantidad, out resumen);
 
             Console.WriteLine($"Extension: {extension}");
@@ -36,7 +36,7 @@ namespace Test
 
 
 
-  
+
 
 
 
