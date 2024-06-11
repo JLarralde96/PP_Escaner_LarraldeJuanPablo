@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exception.cs" />
     <Compile Include="Informes.cs" />
     <Compile Include="Escaner.cs" />
     <Compile Include="Libro.cs" />

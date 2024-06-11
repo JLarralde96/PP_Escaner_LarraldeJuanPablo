@@ -131,33 +131,39 @@ namespace Entidades
         {
 
             bool retorno = false;
-
-            if (escaner != documento)
+            try
             {
-                if (documento.Estado == Documento.Paso.Inicio)
+                if (escaner != documento)
                 {
-                    if ((escaner.Tipo == TipoDoc.mapa) && (documento is Mapa))
+                    if (documento.Estado == Documento.Paso.Inicio)
                     {
-                        documento.AvanzarEstado();
-                        escaner.listaDocumentos.Add(documento);
-                        retorno = true;
+                        if ((escaner.Tipo == TipoDoc.mapa) && (documento is Mapa))
+                        {
+                            documento.AvanzarEstado();
+                            escaner.listaDocumentos.Add(documento);
+                            retorno = true;
+                        }
+
+                        else if ((escaner.Tipo == TipoDoc.libro) && (documento is Libro))
+                        {
+                            documento.AvanzarEstado();
+                            escaner.listaDocumentos.Add(documento);
+                            retorno = true;
+                        }
+                        else
+                        {
+                            retorno = false;
+                            throw new MiExcepcion("El documento no se pudo añadir a la lista", "Escaner", "+");
+                        }
                     }
 
-                    else if ((escaner.Tipo == TipoDoc.libro) && (documento is Libro))
-                    {
-                        documento.AvanzarEstado();
-                        escaner.listaDocumentos.Add(documento);
-                        retorno = true;
-                    }
-                    else
-                    {
-                        retorno = false;
-                    }
+
                 }
-
-
             }
-
+            catch (MiExcepcion ex) 
+            {
+                throw new MiExcepcion("El documento no se pudo añadir a la lista", "Escaner", "+", ex);
+            }
             return retorno;
 
         }
